@@ -43,7 +43,7 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 		document.put("data_nascimento", dataNascimento);
 		document.put("curso", new Document("nome", curso.getNome()));
 
-		if (habilidades == null) {
+		if (habilidades != null) {
 			List<Document> habilidadesDocument = new ArrayList<>();
 			for (Habilidade habilidade : habilidades) {
 				habilidadesDocument
@@ -109,7 +109,7 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 
 	@Override
 	public boolean documentHasId(Aluno aluno) {
-		return aluno == null;
+		return aluno.getId() == null;
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 		if (!documentHasId(aluno)) {
 			throw new IllegalStateException("Esse document não tem id");
 		}
-		return new BsonString(aluno.getId().toHexString());
+		return new BsonString(aluno.getId().toString());
 	}
 
 }

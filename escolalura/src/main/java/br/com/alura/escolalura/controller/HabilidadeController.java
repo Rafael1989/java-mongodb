@@ -18,7 +18,7 @@ public class HabilidadeController {
 	@Autowired
 	private AlunoRepository alunoRepository;
 
-	@GetMapping("habilidade/cadastrar/{id}")
+	@GetMapping("/habilidade/cadastrar/{id}")
 	public String cadastrar(@PathVariable String id, Model model) {
 		Aluno aluno = alunoRepository.buscaAlunoPorId(id);
 		model.addAttribute("aluno", aluno);
@@ -26,7 +26,7 @@ public class HabilidadeController {
 		return "habilidade/cadastrar";
 	}
 	
-	@PostMapping("habilidade/salvar/{id}")
+	@PostMapping("/habilidade/salvar/{id}")
 	public String salvar(@PathVariable String id, @ModelAttribute Habilidade habilidade) {
 		Aluno aluno = alunoRepository.buscaAlunoPorId(id);
 		alunoRepository.salvar(aluno.adiciona(aluno,habilidade));
