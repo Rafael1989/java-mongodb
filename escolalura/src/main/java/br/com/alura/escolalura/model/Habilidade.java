@@ -6,6 +6,14 @@ public class Habilidade {
 	
 	private String nivel;
 
+	public Habilidade(String nome, String nivel) {
+		this.nome = nome;
+		this.nivel = nivel;
+	}
+
+	public Habilidade() {
+	}
+
 	public String getNome() {
 		return nome;
 	}

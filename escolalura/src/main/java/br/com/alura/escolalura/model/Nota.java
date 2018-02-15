@@ -4,6 +4,13 @@ public class Nota {
 	
 	private Double valor;
 
+	public Nota(Double nota) {
+		valor = nota;
+	}
+
+	public Nota() {
+	}
+
 	public Double getValor() {
 		return valor;
 	}
