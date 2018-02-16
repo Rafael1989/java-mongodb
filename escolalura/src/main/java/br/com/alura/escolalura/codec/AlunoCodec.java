@@ -17,6 +17,7 @@ import org.bson.codecs.EncoderContext;
 import org.bson.types.ObjectId;
 
 import br.com.alura.escolalura.model.Aluno;
+import br.com.alura.escolalura.model.Contato;
 import br.com.alura.escolalura.model.Curso;
 import br.com.alura.escolalura.model.Habilidade;
 import br.com.alura.escolalura.model.Nota;
@@ -61,6 +62,17 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 			}
 			document.put("notas", notasParaSalvar);
 		}
+		
+		Contato contato = aluno.getContato();
+		List<Double> coordinates = new ArrayList<>();
+		for(Double location : contato.getCoordinates()) {
+			coordinates.add(location);
+		}
+		
+		document.put("contato", new Document()
+				.append("endereco", contato.getEndereco())
+				.append("coordinates", coordinates)
+				.append("type", contato.getType()));
 
 		codec.encode(writer, document, encoder);
 	}
@@ -103,6 +115,14 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 			}
 			aluno.setHabilidades(habilidadesDoAluno);
 		}
+		
+		Document contato = (Document) document.get("contato");
+		if(contato != null) {
+			String endereco = contato.getString("contato");
+			List<Double> coordinates = (List<Double>) contato.get("coordinates");
+			aluno.setContato(new Contato(endereco,coordinates));
+		}
+		
 		return aluno;
 
 	}

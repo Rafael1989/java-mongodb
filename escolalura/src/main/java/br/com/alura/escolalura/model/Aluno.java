@@ -10,12 +10,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Aluno {
 
 	private ObjectId id;
+
 	private String nome;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Calendar dataNascimento;
+
 	private Curso curso;
+
 	private List<Nota> notas;
+
 	private List<Habilidade> habilidades;
+
+	private Contato contato;
 
 	public ObjectId getId() {
 		return id;
@@ -69,6 +76,14 @@ public class Aluno {
 
 	public void setHabilidades(List<Habilidade> habilidades) {
 		this.habilidades = habilidades;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 
 	public Aluno criaId() {

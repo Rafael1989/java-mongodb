@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <title>EscolAlura</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/inicializar.js"></script>
 </head>
 <body class="grey lighten-3">
   <div id="pesquisaAluno" class="container">
@@ -13,7 +14,7 @@
     <form class="col s12" action="/nota/pesquisar" method="get">
       <div class="row">
         <div class="row">
-          <div class="col s12">
+          <div class="input-field col s12">
             <select name="classificacao" id="classificacao">
                 <option value="" disabled="disabled" selected="selected">Escolha aqui</option>
                 <option value="aprovados">Aprovados</option>
@@ -23,7 +24,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s12">
+          <div class="input-field col s12">
             <select name="notacorte" id="notacorte">
                 <option value="" disabled="disabled" selected="selected">Escolha aqui</option>
                 <option value="7">7</option>

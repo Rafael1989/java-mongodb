@@ -6683,7 +6683,7 @@ input[type=checkbox]:not (:disabled ) ~ .lever:active:before, input[type=checkbo
 }
 
 select {
-	display: block
+	display: none
 }
 
 select.browser-default {
